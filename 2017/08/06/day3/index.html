@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>meteor文件结构 | Hexo</title>
+  <title>meteor概述 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.">
+  <meta name="description" content="Meteor是基于MEAN栈的开源应用开发平台.该平台的客户端和服务器端使用一直的JavaScript API.它专注于实时的响应式应用,快速原型开发和代码重用.Meteor提供了所有基础设施功能,如数据订阅和用户处理,让你专注于实现业务功能.">
 <meta name="keywords" content="meteor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="meteor文件结构">
-<meta property="og:url" content="http://yoursite.com/2017/07/31/day2/index.html">
+<meta property="og:title" content="meteor概述">
+<meta property="og:url" content="http://yoursite.com/2017/08/06/day3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.">
-<meta property="og:updated_time" content="2017-07-31T06:53:28.000Z">
+<meta property="og:description" content="Meteor是基于MEAN栈的开源应用开发平台.该平台的客户端和服务器端使用一直的JavaScript API.它专注于实时的响应式应用,快速原型开发和代码重用.Meteor提供了所有基础设施功能,如数据订阅和用户处理,让你专注于实现业务功能.">
+<meta property="og:updated_time" content="2017-08-07T08:27:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="meteor文件结构">
-<meta name="twitter:description" content="本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.">
+<meta name="twitter:title" content="meteor概述">
+<meta name="twitter:description" content="Meteor是基于MEAN栈的开源应用开发平台.该平台的客户端和服务器端使用一直的JavaScript API.它专注于实时的响应式应用,快速原型开发和代码重用.Meteor提供了所有基础设施功能,如数据订阅和用户处理,让你专注于实现业务功能.">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,32 +154,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-day2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-day3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      meteor文件结构
+      meteor概述
     </h1>
   
 
         
-        <a href="/2017/07/31/day2/" class="archive-article-date">
-  	<time datetime="2017-07-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+        <a href="/2017/08/06/day3/" class="archive-article-date">
+  	<time datetime="2017-08-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.<br><a id="more"></a></p>
-<h2 id="全局的JavaScript"><a href="#全局的JavaScript" class="headerlink" title="全局的JavaScript"></a>全局的JavaScript</h2><p>Meteor是一个用于构建JavaScript应用的全栈技术框架.这意味着Meteor应用和其他绝大多数应用有着很大的不同,即它既包含运行在客户端的代码(运行在浏览器中或Cordova移动应用中),也包含运行在服务端的代码(运行在Node容器中),而且还包含运行在服务端和客户端的代码.<br>Meteor构建工具通过结合ES2015中import、export和Meteor构建系统中文件加载顺序,轻松指定运行在不同环境中的JavaScript代码(包括任何支持的UI模板,CSS规则,静态资源).</p>
-<h2 id="ES2015模块"><a href="#ES2015模块" class="headerlink" title="ES2015模块"></a>ES2015模块</h2><p>从1.3版本开始,Meteor全部支持ES2015中的模块.ES2015模块化标准是CommonJS和AMD规范的取代,用来组织JavaScript模块格式和加载文件.</p>
-<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>为了充分利用模块系统并且保证我们的代码在我们让它运行才运行,我们建议你所有的应用代码都应该被放在import/目录下.<br>这意味着当从另外的文件通过import进行引用的时候,Meteor构建系统只会绑定和包含该目录下的文件.<br>通过默认的文件加载顺序,Meteor将会加载应用中所有import目录之外的文件.为了定义客户端和服务端的明确的入口文件,我们建议你在client和server目录下创建两个main.js文件.Meteor确保所有的在server目录下的文件只在服务端可用,同样在client目录下的文件只会在client目录下可见.<br>这个机制阻止服务端代码使用import引入client文件下的任何文件,同理客户端亦然.<br>main.js文件本身不会做任何事情,但是当应用加载的时候,它们应该分别从客户端和服务端分别导入一些立即运行的启动模块.这些模块应该为你的应用做一些必须的配置,导入剩余的代码.</p>
-<h2 id="启动文件"><a href="#启动文件" class="headerlink" title="启动文件"></a>启动文件</h2><p>你的一些代码可能不是业务逻辑和UI单元,它们仅仅是一些需要在应用启动的时候运行的额设置或配置代码.</p>
-<h2 id="导入伪全局"><a href="#导入伪全局" class="headerlink" title="导入伪全局"></a>导入伪全局</h2><p>为了向后兼容,Meteor1.3为Meteor核心包和应用中包含的其他包提供了Meteor全局命名空间.你依然可以像之前的版本一样在没有导入相关模块之前就直接使用函数比如Meteor.publish().但是我们建议你最好在导入相关模块之后才使用这些它们.</p>
+        <p>Meteor是基于MEAN栈的开源应用开发平台.该平台的客户端和服务器端使用一直的JavaScript API.它专注于实时的响应式应用,快速原型开发和代码重用.Meteor提供了所有基础设施功能,如数据订阅和用户处理,让你专注于实现业务功能.<br><a id="more"></a></p>
+<h2 id="Meteor简介"><a href="#Meteor简介" class="headerlink" title="Meteor简介"></a>Meteor简介</h2><p>Meteor GitHub是GitHub最受欢迎的20大库之一,它不需要创建低级别的基础设施或管道来精简和编译代码,而是让开发人员专注于业务功能.<br>Meteor开发团队把这个项目分成四个领域.  </p>
+<ul>
+<li>工具: 比如命令行界面,它是介于构建工具(如make)和包管理器(如node包管理器npm)之间的一个混合工具.它用以处理整个构件流程,为把应用程序部署到Web或移动设备做准备.</li>
+<li>软件库集合: 一套用以提供功能的核心包.这些功能可以被自定义包或者Node.js模块拓展,其中Node.js模块可以通过npm来安装.</li>
+<li>标准: 如基于WebSocket的分布式数据协议(Distributed Data Protocol,DDP).</li>
+<li>服务:如官方的包服务器或编译集群.<br>所有的Meteor项目都可以使用统一的API来访问,因此开发人员不需要知道哪些组件构成了整个Meteor栈.</li>
+</ul>
+<h2 id="Meteor栈"><a href="#Meteor栈" class="headerlink" title="Meteor栈"></a>Meteor栈</h2><p>简单地说,Meteor是完全使用JavaScript创建富Web应用程序的开源平台.<br>它在同一个框架下捆绑并提供所有必须的组件.它由以下几个部分组成:Node.js、MongoDB、实际的应用程序代码,以及一个强大的CLI工具,该工具结合了npm和make的功能.因此,它不仅仅是服务器进程和库的组合.<br>Meteor是MEAN家族的成员,这意味着它在服务器端使用Node.js.(MEAN栈是指所有构建于MongoDB、Node.js、Angular和Express.js之上的应用。MEAN栈有几种不同的形式，比如MEEN栈，它指的是MongoDB、Ember.js、Express和Node.js。有时这个词用于泛指那些运行于Node.js之上并使用NoSQL数据库的任何框架。)<br>Node.js是一个事件驱动的、高度可扩展的JavaScript运行库，它运行于服务器上。它的功能和LAMP（Linux、Apache、MySQL、PHP）栈中的Apache Web服务器一样。</p>
+<h2 id="同构框架"><a href="#同构框架" class="headerlink" title="同构框架"></a>同构框架</h2><p>Meteor运行在Node.js上,它把应用逻辑移动到浏览器端,这就是通常所说的单页面应用.整个栈使用相同的语言,这使得Meteor成为一个同构平台.<br>虽然有许多框架在客户端和服务器端使用相同的语言,但大部分时间它们不能在两个实例之间共享代码,因为这些框架不是紧密集成的.<br>Meteor是真正的全栈框架，因为它使用了一个简单统一的接口暴露处所有的核心功能，这个接口可以使用在服务器端和浏览器中，甚至可以用来访问数据库．　　<br>为了从浏览器访问数据库，Meteor包含了微型数据库．它们精确模拟了数据库API.在浏览器中，Minimongo使开发人员能够使用与在MongoDB的控制台中相同的命令　　<br>当后台运行一个Java、PHP或Rails应用程序时,处理过程在远离用户的地方发生.客户端通过调用URI来请求数据.作为回应,应用程序从数据库中获取数据,执行一些处理并创建HTML,然后将结果发送到客户端.请求相同信息的客户越多,则服务器缓存的越多.新闻网站以这种模式可以工作的很好.<br>在每个用户都能够创建高度个性化视图的情况下,单一的处理实例很快就变成一个瓶颈.以Facebook为例：任意两个人都不会看到完全相同的墙，每面墙都需要为每个用户单独计算。这给服务器端带来很大压力，而客户端在大多数时候则处在空闲状态，等待响应。<br>当客户端的处理能力有限时,这是完美的模式,但现在单个的iPhone已经拥有了比Web早期的大多数超级计算机更强的计算能力.Meteor利用了这个计算能力,把大部分处理移到了客户端.智能前端从服务器请求数据,并在浏览器或移动设备上装配文档对象模型.  </p>
+<h3 id="传统与现代富Web应用程序的区别"><a href="#传统与现代富Web应用程序的区别" class="headerlink" title="传统与现代富Web应用程序的区别"></a>传统与现代富Web应用程序的区别</h3><p>这种以客户端为中心的方法带来了两个显著的优势.</p>
+<ul>
+<li>需要在服务器和客户端之间进行传输的数据更少,这基本上意味着响应更快.</li>
+<li>由于大多数工作是在每个独立的客户端进行的,因此服务器的处理不太可能因为耗时的请求而被其他用户阻塞.<br>把处理工作从单一的服务器转移到多个客户端,这涉及分布式计算平台的方向.在这样的分布式环境中,数据需要在两个方向上传输.<br>在Meteor框架中,浏览器是一个智能客户端.连接不再是无状态的.当订阅的内容更新时,服务器可以发送数据到客户端.<br>为允许客户端和服务器之间进行双向通信,Meteor使用了Websocket.使用一个标准化的分布式数据协议(DDP)来交换信息.DDP简单易用,可用于许多其他编程语言,如PHP或Java等.<br>把应用移动到浏览器后,所有的客户端基本上就变成了应用程序集群的节点.这引入了新的挑战,也就是在分布式服务器集群中所见过的问题,最重要的是同步所有节点之间的数据.Meteor通过它与生俱来的响应式支持来解决这个问题.<br>用传统的编程范式创建的应用程序很像你计划好的一个傀儡.无论发生什么,它会一直按照给定的方式运行.作为它的创造者,你必须努力定义命令的每一个步骤.<br>所有组件,从数据库到客户端界面,都是响应式的.这意味着所有数据变化在客户端之间是实时同步的.你不需要写任何ajax程序或代码向用户推送更新,因为这个功能直接内置在Meteor中.<br>响应式编程当然不是对每一个场景来说都最好，但是它非常适合Web应用程序的工作方式，因为在大多数情况下我们需要捕捉事件并进行操作。除了用户体验，它可以帮助提高应用的质量和透明度，缩短编程时间，减少维护。  <h2 id="Meteor工作原理"><a href="#Meteor工作原理" class="headerlink" title="Meteor工作原理"></a>Meteor工作原理</h2>一旦部署在服务器上,就很难把Meteor应用和其他基于Node.js的项目区分开.当你仔细观察Meteor如何增强开发过程的时候,这个平台的真正力量就会展现.<br>CLI工具和软件包集合使开发者快速实现结果，然后专注于在程序中添加功能。基础设施问题，如数据库和浏览器之间的数据交换，或整合外部网站的OAuth用户认证，都可以通过添加包来解决。 <h3 id="核心项目"><a href="#核心项目" class="headerlink" title="核心项目"></a>核心项目</h3>Meteor自带的一些包提供了基于Web应用的常用功能.CLI工具允许你创建一个新的项目,并通过单个命令添加或删除包.新建的项目中已经包含了所有的核心包.  </li>
+<li>Blaze<br>Blaze是一种响应式UI库,它的一部分是模板语言Spacebars.</li>
+<li>Tracker<br>Tracker提供函数响应式编程的基本功能.在其核心,Tracker是一个简单的约定,即允许响应数据源连接到数据的消费者.  </li>
+<li>DDP<br>Meteor采用了基于JSON的专用协议，即DDP。DDP是一种来通过WebSockets来双向传递数据的标准方式，没有封装文档的开销。</li>
+<li>Liverquery<br>在像Meteor这样的分布式环境中，需要一种方式来将由一个客户端发起的变化推送到所有其他的客户端，而不需要刷新按钮。<br>Livequery检测数据库中的变化，推送更新到所有正在查看受影响数据的客户。  </li>
+<li>全栈数据库驱动<br>在客户端执行的许多任务依赖于数据库的功能,如过滤和排序.Meteor利用了无缝的数据库无处不在（database everywhere）原理。这意味着作为一个开发人员，你可以在该技术栈的任何地方重用你的代码。<br>Meteor带有一个微型数据库，它在浏览器中模拟实际的数据库。MongoDB的微型数据库被称为Minimongo，它是一个在内存中的、非持久性实现的纯JavaScript MongoDB。它不依赖于HTML5的本地存储，因为它只存在于浏览器的内存中。<br>浏览器中的数据库镜像是实际服务器数据的一个子集，用来模拟如插入这样的动作。它也用作查询的缓存，因此客户端可以直接访问可用的数据，而无需任何联网动作。Minimongo和MongoDB的连接也是响应式的，它们的数据会自动保持同步<br>延迟是桌面应用程序和Web应用之间的一个关键区分因素。没有人喜欢等待，所以Meteor在客户端使用预取和模型模拟方法，使你的应用程序看起来像有一个零延迟的数据库连接。本地Minimongo实例用来模拟任何数据库操作，然后再发送请求到服务器。<br>客户端不需要等待远程数据库完成写入，但应用程序假定它最终会成功，这使得绝大多数的用例都要快很多。在向服务器发送写入操作时出现问题的情况下，客户端需要优雅地回滚并显示一个错误信息。  </li>
+</ul>
 
       
 
@@ -270,7 +284,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/31/day2/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/06/day3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +298,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/06/day3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          meteor概述
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/31/day1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Markdown常用语法</div>
+    <a href="/2017/07/31/day2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">meteor文件结构</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -326,8 +331,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/07/31/day2/", 
-    sourceId: "day2",
+    url: "http://yoursite.com/2017/08/06/day3/", 
+    sourceId: "day3",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
