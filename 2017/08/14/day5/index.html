@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>meteor文件结构 | Hexo</title>
+  <title>事件捕获和事件冒泡 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.">
-<meta name="keywords" content="meteor">
+  <meta name="description" content="JavaScript与HTML之间的交互是通过事件实现的。事件，就是文档或浏览器窗口发生的一些特定交互瞬间。可以使用侦听器来预定事件，以便事件发生时执行相应的代码。　　那么页面的哪一部分会拥有某个特定的事件呢？也就是说如果单击了页面的某个按钮，同时也单击了按钮的容器元素，哪个对象的事件处理函数会先被执行？">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="meteor文件结构">
-<meta property="og:url" content="http://yoursite.com/2017/07/31/day2/index.html">
+<meta property="og:title" content="事件捕获和事件冒泡">
+<meta property="og:url" content="http://yoursite.com/2017/08/14/day5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.">
-<meta property="og:updated_time" content="2017-07-31T06:53:28.000Z">
+<meta property="og:description" content="JavaScript与HTML之间的交互是通过事件实现的。事件，就是文档或浏览器窗口发生的一些特定交互瞬间。可以使用侦听器来预定事件，以便事件发生时执行相应的代码。　　那么页面的哪一部分会拥有某个特定的事件呢？也就是说如果单击了页面的某个按钮，同时也单击了按钮的容器元素，哪个对象的事件处理函数会先被执行？">
+<meta property="og:updated_time" content="2017-08-14T13:43:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="meteor文件结构">
-<meta name="twitter:description" content="本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.">
+<meta name="twitter:title" content="事件捕获和事件冒泡">
+<meta name="twitter:description" content="JavaScript与HTML之间的交互是通过事件实现的。事件，就是文档或浏览器窗口发生的一些特定交互瞬间。可以使用侦听器来预定事件，以便事件发生时执行相应的代码。　　那么页面的哪一部分会拥有某个特定的事件呢？也就是说如果单击了页面的某个按钮，同时也单击了按钮的容器元素，哪个对象的事件处理函数会先被执行？">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,32 +154,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-day2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-day5" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      meteor文件结构
+      事件捕获和事件冒泡
     </h1>
   
 
         
-        <a href="/2017/07/31/day2/" class="archive-article-date">
-  	<time datetime="2017-07-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+        <a href="/2017/08/14/day5/" class="archive-article-date">
+  	<time datetime="2017-08-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.<br><a id="more"></a></p>
-<h2 id="全局的JavaScript"><a href="#全局的JavaScript" class="headerlink" title="全局的JavaScript"></a>全局的JavaScript</h2><p>Meteor是一个用于构建JavaScript应用的全栈技术框架.这意味着Meteor应用和其他绝大多数应用有着很大的不同,即它既包含运行在客户端的代码(运行在浏览器中或Cordova移动应用中),也包含运行在服务端的代码(运行在Node容器中),而且还包含运行在服务端和客户端的代码.<br>Meteor构建工具通过结合ES2015中import、export和Meteor构建系统中文件加载顺序,轻松指定运行在不同环境中的JavaScript代码(包括任何支持的UI模板,CSS规则,静态资源).</p>
-<h2 id="ES2015模块"><a href="#ES2015模块" class="headerlink" title="ES2015模块"></a>ES2015模块</h2><p>从1.3版本开始,Meteor全部支持ES2015中的模块.ES2015模块化标准是CommonJS和AMD规范的取代,用来组织JavaScript模块格式和加载文件.</p>
-<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>为了充分利用模块系统并且保证我们的代码在我们让它运行才运行,我们建议你所有的应用代码都应该被放在import/目录下.<br>这意味着当从另外的文件通过import进行引用的时候,Meteor构建系统只会绑定和包含该目录下的文件.<br>通过默认的文件加载顺序,Meteor将会加载应用中所有import目录之外的文件.为了定义客户端和服务端的明确的入口文件,我们建议你在client和server目录下创建两个main.js文件.Meteor确保所有的在server目录下的文件只在服务端可用,同样在client目录下的文件只会在client目录下可见.<br>这个机制阻止服务端代码使用import引入client文件下的任何文件,同理客户端亦然.<br>main.js文件本身不会做任何事情,但是当应用加载的时候,它们应该分别从客户端和服务端分别导入一些立即运行的启动模块.这些模块应该为你的应用做一些必须的配置,导入剩余的代码.</p>
-<h2 id="启动文件"><a href="#启动文件" class="headerlink" title="启动文件"></a>启动文件</h2><p>你的一些代码可能不是业务逻辑和UI单元,它们仅仅是一些需要在应用启动的时候运行的额设置或配置代码.</p>
-<h2 id="导入伪全局"><a href="#导入伪全局" class="headerlink" title="导入伪全局"></a>导入伪全局</h2><p>为了向后兼容,Meteor1.3为Meteor核心包和应用中包含的其他包提供了Meteor全局命名空间.你依然可以像之前的版本一样在没有导入相关模块之前就直接使用函数比如Meteor.publish().但是我们建议你最好在导入相关模块之后才使用这些它们.</p>
+        <p>JavaScript与HTML之间的交互是通过事件实现的。事件，就是文档或浏览器窗口发生的一些特定交互瞬间。可以使用侦听器来预定事件，以便事件发生时执行相应的代码。　　<br>那么页面的哪一部分会拥有某个特定的事件呢？也就是说如果单击了页面的某个按钮，同时也单击了按钮的容器元素，哪个对象的事件处理函数会先被执行？<br><a id="more"></a></p>
+<h2 id="两种模型"><a href="#两种模型" class="headerlink" title="两种模型"></a>两种模型</h2><p>在浏览器大战的日子里，Netscape和微软有两种截然不同的处理方法：</p>
+<ul>
+<li>Netscape主张外层元素的事件首先发生，这种事件发生顺序被称为<em>捕获型</em></li>
+<li>微软则保持内层元素的事件首先发生，这种事件顺序被称为<em>冒泡型</em>　　</li>
+</ul>
+<p>这两种事件顺序是截然相反的。</p>
+<h2 id="W3C模型"><a href="#W3C模型" class="headerlink" title="W3C模型"></a>W3C模型</h2><p>w3c在这场争斗中选择了一个折中方案。任何发生在w3c事件模型中，首先是进入捕获阶段，直到达到目标元素，再进入冒泡阶段。　　<br>作为一个开发者，你可以选择是在捕获阶段还是冒泡阶段绑定事件处理函数，这是通过addEventListener()方法实现的，如果这个函数的最后一个参数是true,则在捕获阶段绑定函数，反之则在冒泡阶段绑定函数。<br>在支持w3c dom的浏览器中，传统的事件绑定方法是：<br><figure class="highlight plain"><figcaption><span>= dosomething```  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">上述写法默认被视为事件被绑定于冒泡阶段。</div><div class="line">##代码测试</div><div class="line">示例１，当点击文字时，控制台依次输出children,parent.</div></pre></td></tr></table></figure></p>
+<p><div id="parent"><br>    <div id="children"><br>        点我测试<br>    </div><br></div><br>document.getElementById(“children”).onclick = function () {<br>    console.log(‘children’);<br>}<br>document.getElementById(“parent”).onclick = function () {<br>    console.log(‘parent’);<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">示例２，点击文字时，控制台依次输出parent,children.</div></pre></td></tr></table></figure></p>
+<p><div id="parent"><br>    <div id="children"><br>        点我测试<br>    </div><br></div><br>document.getElementById(“children”).addEventListener(‘click’,function(){<br>    console.log(‘children’);<br>},true)</p>
+<p>document.getElementById(“parent”).addEventListener(‘click’,function(){<br>    console.log(‘parent’);<br>},true)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">示例３，点击文字时，控制台依次输出children,parent.</div></pre></td></tr></table></figure></p>
+<p><div id="parent"><br>    <div id="children"><br>        点我测试<br>    </div><br></div><br>document.getElementById(“children”).addEventListener(‘click’,function(){<br>    console.log(‘children’);<br>},true)</p>
+<p>document.getElementById(“parent”).addEventListener(‘click’,function(){<br>    console.log(‘parent’);<br>},false)<br>```</p>
 
       
 
@@ -214,7 +221,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">meteor</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -270,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/31/day2/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/14/day5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,15 +291,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/31/day1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Markdown常用语法
-        
-      </div>
-    </a>
   
+    <a href="/2017/08/12/day4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何在工作中提升自己</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -321,8 +324,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/07/31/day2/", 
-    sourceId: "day2",
+    url: "http://yoursite.com/2017/08/14/day5/", 
+    sourceId: "day5",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
