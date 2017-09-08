@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Markdown常用语法 | Hexo</title>
+  <title>Buffer详解 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。">
-<meta name="keywords" content="markdown">
+  <meta name="description" content="历史上JavaScript对二进制支持欠佳。通常情况下，解析二进制数据涉及到从字符串中提取所需要的多种技巧。">
+<meta name="keywords" content="Node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown常用语法">
-<meta property="og:url" content="http://yoursite.com/2017/07/31/day1/index.html">
+<meta property="og:title" content="Buffer详解">
+<meta property="og:url" content="http://yoursite.com/2017/08/25/day7/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。">
-<meta property="og:updated_time" content="2017-07-31T07:53:38.000Z">
+<meta property="og:description" content="历史上JavaScript对二进制支持欠佳。通常情况下，解析二进制数据涉及到从字符串中提取所需要的多种技巧。">
+<meta property="og:updated_time" content="2017-09-08T01:05:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown常用语法">
-<meta name="twitter:description" content="Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。">
+<meta name="twitter:title" content="Buffer详解">
+<meta name="twitter:description" content="历史上JavaScript对二进制支持欠佳。通常情况下，解析二进制数据涉及到从字符串中提取所需要的多种技巧。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,30 +154,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-day1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-day7" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Markdown常用语法
+      Buffer详解
     </h1>
   
 
         
-        <a href="/2017/07/31/day1/" class="archive-article-date">
-  	<time datetime="2017-07-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
+        <a href="/2017/08/25/day7/" class="archive-article-date">
+  	<time datetime="2017-08-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。<br>Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。<br><a id="more"></a></p>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在 标题开头 加上1~6个#，依次代表一级标题、二级标题….六级标题</p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>无序列表使用-、+和*作为列表标记;有序列表则使用数字加英文句点</p>
-
+        <p>历史上JavaScript对二进制支持欠佳。通常情况下，解析二进制数据涉及到从字符串中提取所需要的多种技巧。<a id="more"></a>Node开发者需要面对的一个问题是，JavaScript中没有提供一个比较好的方式去处理原始的内存数据。处于对性能的考虑，所有关于原始内存数据的处理都在Buffer数据类型中。<br>Buffer是代表原始堆分配额的数据类型，在JavaScript中以类数组的方式来使用。在全局可用，不需要require,可以将其视为是JavaScript的另外一种类型。</p>
+<h2 id="修改数据编码"><a href="#修改数据编码" class="headerlink" title="修改数据编码"></a>修改数据编码</h2><p>如果没有提供编码格式，那么文件操作以及很多的网络操作就会将数据作为Buffer类型返回，就拿fs.readFile作为例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs&apos;);</div><div class="line">fs.readFile(&apos;./names.txt&apos;,function(err,buf)&#123;</div><div class="line">    const isBuf = Buffer.isBuffer(buf);</div><div class="line">    console.log(isBuf);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>上述代码中，如果是Buffer类型就会返回true.</p>
+<h3 id="Buffer转换为其他格式"><a href="#Buffer转换为其他格式" class="headerlink" title="Buffer转换为其他格式"></a>Buffer转换为其他格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs&apos;);</div><div class="line">fs.readFile(&apos;./names.txt&apos;,function(err,buf)&#123;</div><div class="line">    console.log(buf.tostring());</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Buffer类提供了toString这个方法来把数据转换为其他编码类型。(toString默认把数据转换为UTF-8格式的字符串)</p>
+<h3 id="使用Buffer来修改字符串编码"><a href="#使用Buffer来修改字符串编码" class="headerlink" title="使用Buffer来修改字符串编码"></a>使用Buffer来修改字符串编码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const auth = &apos;zuckjet&apos;;</div><div class="line">const buf = new Buffer(auth);</div><div class="line">const encoded = buf.toString(&apos;base64&apos;);</div><div class="line">console.log(encoded);</div></pre></td></tr></table></figure>
+<p>上述代码输出字符串’zuckjet’的base64形式。</p>
+<h3 id="处理data-URIs"><a href="#处理data-URIs" class="headerlink" title="处理data URIs"></a>处理data URIs</h3>
       
 
       
@@ -211,7 +215,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Node</a>
         		</li>
       		
 		</ul>
@@ -267,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/31/day1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/25/day7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,18 +285,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/06/day3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          meteor概述
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/31/day2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">meteor文件结构</div>
+    <a href="/2017/08/14/day5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">事件捕获和事件冒泡</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -323,8 +318,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/07/31/day1/", 
-    sourceId: "day1",
+    url: "http://yoursite.com/2017/08/25/day7/", 
+    sourceId: "day7",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
