@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaScript相等性判断 | Hexo</title>
+  <title>函数式编程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript提供了等号（==）、全等号(===)以及Objec.is三种不同的比较操作.">
+  <meta name="description" content="在软件设计的过程中，如果要保证软件产品的功能稳定可用，同时要保证它的灵活性和可扩展性，那么系统就要有变化的部分和不变的部分。哪些部分应当设计成“不变”，哪些部分应当设计成“可变”，在这个取舍过程中，FP（函数式编程）和 OOP（面向对象编程）正是走了两条不同的路线。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript相等性判断">
-<meta property="og:url" content="http://yoursite.com/2017/08/26/day8/index.html">
+<meta property="og:title" content="函数式编程">
+<meta property="og:url" content="http://yoursite.com/2017/08/27/day10/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="JavaScript提供了等号（==）、全等号(===)以及Objec.is三种不同的比较操作.">
-<meta property="og:updated_time" content="2017-09-08T02:03:46.000Z">
+<meta property="og:description" content="在软件设计的过程中，如果要保证软件产品的功能稳定可用，同时要保证它的灵活性和可扩展性，那么系统就要有变化的部分和不变的部分。哪些部分应当设计成“不变”，哪些部分应当设计成“可变”，在这个取舍过程中，FP（函数式编程）和 OOP（面向对象编程）正是走了两条不同的路线。">
+<meta property="og:updated_time" content="2017-09-08T10:00:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript相等性判断">
-<meta name="twitter:description" content="JavaScript提供了等号（==）、全等号(===)以及Objec.is三种不同的比较操作.">
+<meta name="twitter:title" content="函数式编程">
+<meta name="twitter:description" content="在软件设计的过程中，如果要保证软件产品的功能稳定可用，同时要保证它的灵活性和可扩展性，那么系统就要有变化的部分和不变的部分。哪些部分应当设计成“不变”，哪些部分应当设计成“可变”，在这个取舍过程中，FP（函数式编程）和 OOP（面向对象编程）正是走了两条不同的路线。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,54 +154,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-day8" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-day10" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript相等性判断
+      函数式编程
     </h1>
   
 
         
-        <a href="/2017/08/26/day8/" class="archive-article-date">
-  	<time datetime="2017-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
+        <a href="/2017/08/27/day10/" class="archive-article-date">
+  	<time datetime="2017-08-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript提供了等号（==）、全等号(===)以及Objec.is三种不同的比较操作.<br><a id="more"></a></p>
-<h2 id="等号"><a href="#等号" class="headerlink" title="等号(==)"></a>等号(==)</h2><p>在ECMAScript 中，等号由双等号（==）表示，当且仅当两个运算数相等时，它返回 true。<br>为确定两个运算数是否相等，这两个运算符都会进行类型转换。<br>执行类型转换的规则如下：</p>
-<ul>
-<li>如果一个运算数是Boolean值，在检查相等性之前，把它转换成数字值。false转换成0，true为1。</li>
-<li>如果一个运算数是字符串，另一个是数字，在检查相等性之前，尝试把字符串转换成数字。</li>
-<li>如果一个运算数是对象，另一个是字符串，在检查相等性之前，要尝试把对象转换成字符串。</li>
-<li>如果一个运算数是对象，另一个是数字，在检查相等性之前，要尝试把对象转换成数字。</li>
-</ul>
-<p>在比较时，该运算符还遵守下列规则：</p>
-<ul>
-<li>null和undefined相等。</li>
-<li>在检查相等性时，不能把null和undefined转换成其他值。</li>
-<li>如果某个运算数是NaN,等号将返回false,非等号将返回true.</li>
-<li>如果两个运算数都是对象，那么比较的是它们的引用值。如果两个运算数指向同一对象，那么等号返回true,否则两个运算数不相等。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var obj = new String(&quot;0&quot;);</div><div class="line">var obj0 = new String(&quot;0&quot;);</div><div class="line">var obj1 = &#123;name:&quot;zuckjet&quot;&#125;;</div><div class="line">var obj2 = &#123;name:&quot;zuckjet&quot;&#125;;</div><div class="line">var obj3 = obj;</div><div class="line">var str = &quot;0&quot;;</div><div class="line">console.log(true == 1);  //true;true转换为1</div><div class="line">console.log(false == 1);  //false;false转换为0</div><div class="line">console.log(false == &quot;0&quot;);  //true;false转换为0，&quot;0&quot;转换为0</div><div class="line">console.log(&quot;0&quot; == 0); //true;&quot;0&quot;转换为数字0</div><div class="line">console.log(obj == str); //true;</div><div class="line">console.log(obj1 == str); //false</div><div class="line">console.log(obj1 == obj2); //false</div><div class="line">console.log(obj0 == obj); //false</div><div class="line">console.log(obj3 == obj); //true</div><div class="line">console.log(NaN == NaN); //false</div><div class="line">console.log(undefined == undefined); //true</div><div class="line">console.log(null == null); //true</div><div class="line">console.log(+0 == -0);  //true</div></pre></td></tr></table></figure>
-<h2 id="全等号"><a href="#全等号" class="headerlink" title="全等号"></a>全等号</h2><p>全等号所做的和等号相同，只是它们在检查相等性前，不执行类型转换。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var num = 0;</div><div class="line">var obj = new String(&quot;0&quot;);</div><div class="line">var str = &quot;0&quot;;</div><div class="line">var b = false;</div><div class="line"></div><div class="line">console.log(num === num); // true</div><div class="line">console.log(obj === obj); // true</div><div class="line">console.log(str === str); // true</div><div class="line"></div><div class="line">console.log(num === obj); // false</div><div class="line">console.log(num === str); // false</div><div class="line">console.log(obj === str); // false</div><div class="line">console.log(null === undefined); // false</div><div class="line">console.log(obj === null); // false</div><div class="line">console.log(obj === undefined); // false</div><div class="line">console.log(undefined == undefined); //true</div><div class="line">console.log(null == null); //true</div><div class="line">console.log(NaN === NaN);  //false</div><div class="line">console.log(+0 === -0);  //true</div></pre></td></tr></table></figure></p>
-<h2 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h2><p>Object.is() 会在下面这些情况下认为两个值是相同的：</p>
-<ul>
-<li>两个值都是 undefined</li>
-<li>两个值都是 null</li>
-<li>两个值都是 true 或者都是 false</li>
-<li>两个值是由相同个数的字符按照相同的顺序组成的字符串</li>
-<li>两个值指向同一个对象</li>
-<li>两个值都是数字并且: 都是都是正零 +0/都是负零 -0/都是 NaN/都是除零和 NaN 外的其它同一个数字 </li>
-</ul>
-<p>这种相等性判断逻辑和传统的 == 运算符所用的不同，== 运算符会对它两边的操作数做隐式的类型转换（如果它们是不同类型的值的话），然后才进行相等性比较，（所以才会有类似 “” == false 为 true 的现象），但 Object.is 不会做这种类型转换。</p>
-<p>当然，严格相等运算符 === 也不会对操作数进行类型转换，但是它会把 -0 和 +0 这两个数值视为相同的，还会把两个 NaN 看成是不相等的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Object.is(&apos;foo&apos;, &apos;foo&apos;);     // true</div><div class="line">Object.is(window, window);   // true</div><div class="line"></div><div class="line">Object.is(&apos;foo&apos;, &apos;bar&apos;);     // false</div><div class="line">Object.is([], []);           // false</div><div class="line"></div><div class="line">var test = &#123; a: 1 &#125;;</div><div class="line">Object.is(test, test);       // true</div><div class="line"></div><div class="line">Object.is(null, null);       // true</div><div class="line"></div><div class="line">// 特例</div><div class="line">Object.is(0, -0);            // false</div><div class="line">Object.is(-0, -0);           // true</div><div class="line">Object.is(NaN, 0/0);         // true</div></pre></td></tr></table></figure></p>
+        <p>在软件设计的过程中，如果要保证软件产品的功能稳定可用，同时要保证它的灵活性和可扩展性，那么系统就要有变化的部分和不变的部分。哪些部分应当设计成“不变”，哪些部分应当设计成“可变”，在这个取舍过程中，FP（函数式编程）和 OOP（面向对象编程）正是走了两条不同的路线。<br><a id="more"></a></p>
+<p>面向对象对数据进行抽象，将行为以对象方法的方式封装到数据实体内部，从而降低系统的耦合度。而函数式编程，选择对过程进行抽象，将数据以输入输出流的方式封装进过程内部，从而也降低系统的耦合度。两者虽是截然不同，然而在系统设计的目标上可以说是殊途同归的。</p>
+<p>面向对象思想和函数式编程思想也是不矛盾的，因为一个庞大的系统，可能既要对数据进行抽象，又要对过程进行抽象，或者一个局部适合进行数据抽象，另一个局部适合进行过程抽象，这都是可能的。数据抽象不一定以对象实体为形式，同样过程抽象也不是说形式上必然是 functional 的，比如流式对象（InputStream、OutputStream）、Express 的 middleware，就带有明显的过程抽象的特征。但是在通常情况下，OOP更适合用来做数据抽象，FP更适合用来做过程抽象。</p>
+<h2 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h2><p>在程序设计中，若一个函数符合以下要求，则它可能被认为是纯函数：<br>此函数在相同的输入值时，需产生相同的输出。函数的输出和输入值以外的其他隐藏信息或状态无关，也和由I/O设备产生的外部输出无关。<br>该函数不能有语义上可观察的函数副作用，诸如“触发事件”，使输出设备输出，或更改输出值以外物件的内容等。<br>纯函数的输出可以不用和所有的输入值有关，甚至可以和所有的输入值都无关。但纯函数的输出不能和输入值以外的任何资讯有关。纯函数可以传回多个输出值，但上述的原则需针对所有输出值都要成立。若引数是传引用调用，若有对参数物件的更改，就会影响函数以外物件的内容，因此就不是纯函数。<br>函数式编程的核心就是借助形式化数学来描述逻辑：lambda 运算。数学家们喜欢将程序描述为数据的变换，这也引入了第一个概念：纯函数。纯函数无副作用，仅仅依赖于函数的输入，并且当输入相同时输出保持一致。看下面一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 纯函数</div><div class="line">const add10 = (a) =&gt; a + 10</div><div class="line">// 依赖于外部变量的非纯函数</div><div class="line">let x = 10</div><div class="line">const addx = (a) =&gt; a + x</div><div class="line">// 会产生副作用的非纯函数</div><div class="line">const setx = (v) =&gt; x = v</div></pre></td></tr></table></figure></p>
+<p>非纯函数间接地依赖于参数 x。如果你改变了 x 的值，对于相同的 a，addx 会输出不同的结果。这就使得在编译时很难去静态分析和优化程序。不过对 JavaScript 开发者来说更加有用的是，纯函数降低了程序的认知难度。写纯函数时，你仅仅需要关注函数体本身。不必去担心一些外部因素所带来的问题，比如在 addx 函数中的 x 被改变。</p>
+<h2 id="函数组合"><a href="#函数组合" class="headerlink" title="函数组合"></a>函数组合</h2><p>函数式编程中还有一个很棒的东西就是你可以在新的函数中组合它们。一用于在 lambda 运算中描述程序的很特殊的运算符就是组合。组合将两个函数在一个新的函数中『组合』到一起。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const add1 = (a) =&gt; a + 1</div><div class="line">const times2 = (a) =&gt; a * 2</div><div class="line">const compose = (a, b) =&gt; (c) =&gt; a(b(c))</div><div class="line">const add1OfTimes2 = compose(add1, times2)</div><div class="line">add1OfTimes2(5) // =&gt; 11</div></pre></td></tr></table></figure></p>
+<p>组合与介词『of』很像。注意参数的顺序以及它们是如何被计算的：两倍后加一：第二个函数会被先调用。组合与 unix 中的 pipe 函数是刚好相反的，它会接收一个由函数组成的数组作为参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const pipe = (fns) =&gt; (x) =&gt; fns.reduce((v, f) =&gt; f(v), x)</div><div class="line">const times2add1 = pipe([times2, add1])</div><div class="line">times2add1(5) // =&gt; 11</div></pre></td></tr></table></figure></p>
+<p>借助函数组合，我们可以通过将多个小函数结合在一起来构建更复杂的数据变化。这篇文章详细地展示了函数组合是如何帮助你以更加干净简洁的方式来处理数据。</p>
+<p>另外一个使用纯函数和函数组合的好处是更加容易追踪错误。无论在什么时候出现一个错误，你都能够通过每个函数追溯到问题的缘由。在面向对象编程中，这通常会相当的复杂，因为你一般情况下并不知道引发改问题的对象的其他状态。  </p>
+<h2 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h2><p>函数柯里化的发明者是：Haskell Curry，Haskell 语言同样以 Haskell Curry 命名。函数柯里化的本质是，可以在调用一个函数的时候传入更少的参数，而这个函数会返回另外一个函数并且能够接收其他参数。有一篇非常棒的文章非常详细地做了解释，下面是一个使用了 Ramda.js 完成柯里化的简单示例。</p>
+<p>下面的示例中，我们创建了一个柯里化函数『add』，接收两个参数。当我们传递一个参数时，会得到一个中间函数『add1』，它仅仅会接收一个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const add = R.curry((a, b) =&gt; a + b)</div><div class="line">add(1, 2) // =&gt; 3</div><div class="line">const add1 = add(1)</div><div class="line">add1(2) // =&gt; 3</div><div class="line">add1(10) // =&gt; 11</div></pre></td></tr></table></figure></p>
+<p>函数的柯里化也可以这样理解,所谓”柯里化”，就是把一个多参数的函数，转化为单参数函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 柯里化之前</div><div class="line">function add(x, y) &#123;</div><div class="line">  return x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add(1, 2) // 3</div><div class="line"></div><div class="line">// 柯里化之后</div><div class="line">function addX(y) &#123;</div><div class="line">  return function (x) &#123;</div><div class="line">    return x + y;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">addX(2)(1) // 3</div></pre></td></tr></table></figure></p>
 
       
 
@@ -292,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/26/day8/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/27/day10/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,18 +290,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/27/day9/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          :nth-child和:nth-of-type
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/25/day7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Buffer详解</div>
+    <a href="/2017/08/27/day9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">:nth-child和:nth-of-type</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -348,8 +323,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/08/26/day8/", 
-    sourceId: "day8",
+    url: "http://yoursite.com/2017/08/27/day10/", 
+    sourceId: "day10",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
