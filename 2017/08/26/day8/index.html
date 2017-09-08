@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>相册 | Hexo</title>
+  <title>JavaScript相等性判断 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+  <meta name="description" content="JavaScript提供了等号（==）、全等号(===)以及Objec.is三种不同的比较操作. 等号(==)在ECMAScript 中，等号由双等号（==）表示，当且仅当两个运算数相等时，它返回 true。为确定两个运算数是否相等，这两个运算符都会进行类型转换。执行类型转换的规则如下：  如果一个运算数是Boolean值，在检查相等性之前，把它转换成数字值。false转换成0，true为1。 如">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript相等性判断">
+<meta property="og:url" content="http://yoursite.com/2017/08/26/day8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:image" content="http://oqvcferhi.bkt.clouddn.com/myself.png">
-<meta property="og:image" content="http://oqvcferhi.bkt.clouddn.com/myself.png">
-<meta property="og:image" content="http://oqvcferhi.bkt.clouddn.com/myself.png">
-<meta property="og:updated_time" content="2017-07-30T08:07:39.000Z">
+<meta property="og:description" content="JavaScript提供了等号（==）、全等号(===)以及Objec.is三种不同的比较操作. 等号(==)在ECMAScript 中，等号由双等号（==）表示，当且仅当两个运算数相等时，它返回 true。为确定两个运算数是否相等，这两个运算符都会进行类型转换。执行类型转换的规则如下：  如果一个运算数是Boolean值，在检查相等性之前，把它转换成数字值。false转换成0，true为1。 如">
+<meta property="og:updated_time" content="2017-09-08T02:01:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:image" content="http://oqvcferhi.bkt.clouddn.com/myself.png">
+<meta name="twitter:title" content="JavaScript相等性判断">
+<meta name="twitter:description" content="JavaScript提供了等号（==）、全等号(===)以及Objec.is三种不同的比较操作. 等号(==)在ECMAScript 中，等号由双等号（==）表示，当且仅当两个运算数相等时，它返回 true。为确定两个运算数是否相等，这两个运算符都会进行类型转换。执行类型转换的规则如下：  如果一个运算数是Boolean值，在检查相等性之前，把它转换成数字值。false转换成0，true为1。 如">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,24 +154,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-day8" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      JavaScript相等性判断
     </h1>
   
 
+        
+        <a href="/2017/08/26/day8/" class="archive-article-date">
+  	<time datetime="2017-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p>
-<div class="instagram itemscope"><br>    <img src="http://oqvcferhi.bkt.clouddn.com/myself.png" style="margin-top:25px"><br>    <img src="http://oqvcferhi.bkt.clouddn.com/myself.png" style="margin-top:25px"><br>    <img src="http://oqvcferhi.bkt.clouddn.com/myself.png" style="margin-top:25px"><br></div>
+        <p>JavaScript提供了等号（==）、全等号(===)以及Objec.is三种不同的比较操作.</p>
+<h2 id="等号"><a href="#等号" class="headerlink" title="等号(==)"></a>等号(==)</h2><p>在ECMAScript 中，等号由双等号（==）表示，当且仅当两个运算数相等时，它返回 true。<br>为确定两个运算数是否相等，这两个运算符都会进行类型转换。<br>执行类型转换的规则如下：</p>
+<ul>
+<li>如果一个运算数是Boolean值，在检查相等性之前，把它转换成数字值。false转换成0，true为1。</li>
+<li>如果一个运算数是字符串，另一个是数字，在检查相等性之前，尝试把字符串转换成数字。</li>
+<li>如果一个运算数是对象，另一个是字符串，在检查相等性之前，要尝试把对象转换成字符串。</li>
+<li>如果一个运算数是对象，另一个是数字，在检查相等性之前，要尝试把对象转换成数字。</li>
+</ul>
+<p>在比较时，该运算符还遵守下列规则：</p>
+<ul>
+<li>null和undefined相等。</li>
+<li>在检查相等性时，不能把null和undefined转换成其他值。</li>
+<li>如果某个运算数是NaN,等号将返回false,非等号将返回true.</li>
+<li>如果两个运算数都是对象，那么比较的是它们的引用值。如果两个运算数指向同一对象，那么等号返回true,否则两个运算数不相等。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var obj = new String(&quot;0&quot;);</div><div class="line">var obj0 = new String(&quot;0&quot;);</div><div class="line">var obj1 = &#123;name:&quot;zuckjet&quot;&#125;;</div><div class="line">var obj2 = &#123;name:&quot;zuckjet&quot;&#125;;</div><div class="line">var obj3 = obj;</div><div class="line">var str = &quot;0&quot;;</div><div class="line">console.log(true == 1);  //true;true转换为1</div><div class="line">console.log(false == 1);  //false;false转换为0</div><div class="line">console.log(false == &quot;0&quot;);  //true;false转换为0，&quot;0&quot;转换为0</div><div class="line">console.log(&quot;0&quot; == 0); //true;&quot;0&quot;转换为数字0</div><div class="line">console.log(obj == str); //true;</div><div class="line">console.log(obj1 == str); //false</div><div class="line">console.log(obj1 == obj2); //false</div><div class="line">console.log(obj0 == obj); //false</div><div class="line">console.log(obj3 == obj); //true</div><div class="line">console.log(NaN == NaN); //false</div><div class="line">console.log(undefined == undefined); //true</div><div class="line">console.log(null == null); //true</div><div class="line">console.log(+0 == -0);  //true</div></pre></td></tr></table></figure>
+<h2 id="全等号"><a href="#全等号" class="headerlink" title="全等号"></a>全等号</h2><p>全等号所做的和等号相同，只是它们在检查相等性前，不执行类型转换。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var num = 0;</div><div class="line">var obj = new String(&quot;0&quot;);</div><div class="line">var str = &quot;0&quot;;</div><div class="line">var b = false;</div><div class="line"></div><div class="line">console.log(num === num); // true</div><div class="line">console.log(obj === obj); // true</div><div class="line">console.log(str === str); // true</div><div class="line"></div><div class="line">console.log(num === obj); // false</div><div class="line">console.log(num === str); // false</div><div class="line">console.log(obj === str); // false</div><div class="line">console.log(null === undefined); // false</div><div class="line">console.log(obj === null); // false</div><div class="line">console.log(obj === undefined); // false</div><div class="line">console.log(undefined == undefined); //true</div><div class="line">console.log(null == null); //true</div><div class="line">console.log(NaN === NaN);  //false</div><div class="line">console.log(+0 === -0);  //true</div></pre></td></tr></table></figure></p>
+<h2 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h2><p>Object.is() 会在下面这些情况下认为两个值是相同的：</p>
+<ul>
+<li>两个值都是 undefined</li>
+<li>两个值都是 null</li>
+<li>两个值都是 true 或者都是 false</li>
+<li>两个值是由相同个数的字符按照相同的顺序组成的字符串</li>
+<li>两个值指向同一个对象</li>
+<li>两个值都是数字并且: 都是都是正零 +0/都是负零 -0/都是 NaN/都是除零和 NaN 外的其它同一个数字 </li>
+</ul>
+<p>这种相等性判断逻辑和传统的 == 运算符所用的不同，== 运算符会对它两边的操作数做隐式的类型转换（如果它们是不同类型的值的话），然后才进行相等性比较，（所以才会有类似 “” == false 为 true 的现象），但 Object.is 不会做这种类型转换。</p>
+<p>当然，严格相等运算符 === 也不会对操作数进行类型转换，但是它会把 -0 和 +0 这两个数值视为相同的，还会把两个 NaN 看成是不相等的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Object.is(&apos;foo&apos;, &apos;foo&apos;);     // true</div><div class="line">Object.is(window, window);   // true</div><div class="line"></div><div class="line">Object.is(&apos;foo&apos;, &apos;bar&apos;);     // false</div><div class="line">Object.is([], []);           // false</div><div class="line"></div><div class="line">var test = &#123; a: 1 &#125;;</div><div class="line">Object.is(test, test);       // true</div><div class="line"></div><div class="line">Object.is(null, null);       // true</div><div class="line"></div><div class="line">// 特例</div><div class="line">Object.is(0, -0);            // false</div><div class="line">Object.is(-0, -0);           // true</div><div class="line">Object.is(NaN, 0/0);         // true</div></pre></td></tr></table></figure></p>
+
       
 
       
@@ -200,6 +231,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -250,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/photos/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/26/day8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -262,6 +304,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/25/day7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Buffer详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -280,6 +332,25 @@
 </aside>
 
 
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2017/08/26/day8/", 
+    sourceId: "day8",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+
+  
 
 
           </div>
@@ -304,7 +375,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
