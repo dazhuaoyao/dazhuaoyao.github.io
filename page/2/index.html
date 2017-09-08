@@ -151,19 +151,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-day12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-day2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/day12/">MongoDB使用限制</a>
+      <a class="article-title" href="/2017/07/31/day2/">meteor文件结构</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/day12/" class="archive-article-date">
+        <a href="/2017/07/31/day2/" class="archive-article-date">
   	<time datetime="2017-07-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -171,30 +171,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在开始使用一个新的数据库时,你还应该了解其使用限制,以便能够更好地使用它.在本文中,我会列出MongoDB的使用限制,以及它不适用的用例.</p>
-<h2 id="MongoDB的空间过大-对于MMAPv1而言"><a href="#MongoDB的空间过大-对于MMAPv1而言" class="headerlink" title="MongoDB的空间过大(对于MMAPv1而言)"></a>MongoDB的空间过大(对于MMAPv1而言)</h2><p>MongoDB(使用MMAPv1存储引擎)的空间过大了,也就是说,数据目录文件比数据库的实际数据要大.<br>这是由于预先分配数据文件造成的.根据设计,这是为了避免文件系统碎片.<br>数据目录中文件的名称形如<dbname>.0,<dbname>1,以此类推.由mongod分配的第一个文件的大小是64MB;所有后续的文件大小都会增加两倍,因此第二个文件大小为128MB,第三个文件大小为256MB,以此类推直到到达2GB.</dbname></dbname></p>
-<h2 id="内存问题"><a href="#内存问题" class="headerlink" title="内存问题"></a>内存问题</h2><p>在MongoDB中,内存是由映射整个数据集的内存来管理的.它允许OS控制内存映射并分配最大数量的RAM.其结果是,性能并非最优,并且可以推断其内存使用并非高效.</p>
-<h2 id="32为和64位对比"><a href="#32为和64位对比" class="headerlink" title="32为和64位对比"></a>32为和64位对比</h2><p>32位的支持不好,被限制为只能存储大约2GB的数据.</p>
-<h2 id="BSON文档"><a href="#BSON文档" class="headerlink" title="BSON文档"></a>BSON文档</h2><p>BSON文档的使用有如下限制:</p>
-<ul>
-<li>大小限制:就像其他数据库一样,文档中可以存储哪些内容是有限制的.但前版本支持最大16MB的文档.</li>
-<li>嵌套深度限制:在MongoDB中,BSON文档不支持超过100的嵌套层级.</li>
-<li>字段名称:如果使用键”col1”存储1000个文档,那么这个键就会在数据集中被存储同样多次.</li>
-</ul>
-<h2 id="命名空间限制"><a href="#命名空间限制" class="headerlink" title="命名空间限制"></a>命名空间限制</h2><p>要注意命名空间方面的以下使用限制:</p>
-<ul>
-<li>一个命名空间的长度都必须小于123个字节</li>
-<li>一个命名空间的大小不能超过2047MB</li>
-<li>命名空间数量限制</li>
-</ul>
-<h2 id="索引使用限制"><a href="#索引使用限制" class="headerlink" title="索引使用限制"></a>索引使用限制</h2><h2 id="分片使用限制"><a href="#分片使用限制" class="headerlink" title="分片使用限制"></a>分片使用限制</h2><h2 id="安全性限制"><a href="#安全性限制" class="headerlink" title="安全性限制"></a>安全性限制</h2><h2 id="写入和读取限制"><a href="#写入和读取限制" class="headerlink" title="写入和读取限制"></a>写入和读取限制</h2><h2 id="MongoDB不适用的范围"><a href="#MongoDB不适用的范围" class="headerlink" title="MongoDB不适用的范围"></a>MongoDB不适用的范围</h2><p>MongoDB不适用以下方面:  </p>
-<ul>
-<li>像会计或银行系统这样的高事物性系统.传统的RDBMS仍旧更加适合于这样的应用程序,它们要求大量的原子性复杂事物.</li>
-<li>传统的商业智能应用程序,其中一个特定问题的BI数据库会生成高度优化的查询.对于这样的应用程序来说,数据仓库可能是一个更加适合的选择.  </li>
-<li>需要复杂SQL查询的应用程序.</li>
-<li>MongoDB不支持事物操作,因此银行系统肯定不能用它.</li>
-</ul>
-
+        <p>本文主要讲述如何使用ES2015中的模块来组织你的meteor应用代码,把代码分发到服务端和客户端以及把你的代码分割成不同的应用.<br>
+        
+          <a class="article-more-a" href="/2017/07/31/day2/#more">more >></a>
+        
       
 
       
@@ -207,7 +187,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">meteor</a>
         		</li>
       		
 		</ul>
@@ -217,7 +197,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/day12/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/day2/">展开全文 >></a>
         </p>
       
 
@@ -247,19 +227,19 @@
 
 
   
-    <article id="post-day11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-day1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/day11/">Redux学习</a>
+      <a class="article-title" href="/2017/07/31/day1/">Markdown常用语法</a>
     </h1>
   
 
         
-        <a href="/2017/07/31/day11/" class="archive-article-date">
+        <a href="/2017/07/31/day1/" class="archive-article-date">
   	<time datetime="2017-07-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
@@ -267,9 +247,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>React只是DOM的一个抽象层,并不是Web应用完整解决方案.有两个方面它没有涉及—代码结构和组件之间的通信.对于大型的复杂应用来说,这两方面恰恰是最关键的.
+        <p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。<br>Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。<br>
         
-          <a class="article-more-a" href="/2017/07/31/day11/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/31/day1/#more">more >></a>
         
       
 
@@ -283,7 +263,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
         		</li>
       		
 		</ul>
@@ -293,7 +273,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/day11/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/31/day1/">展开全文 >></a>
         </p>
       
 
@@ -414,15 +394,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -443,10 +427,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
             
             <div class="clearfix"></div>
